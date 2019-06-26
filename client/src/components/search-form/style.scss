@@ -1,0 +1,16 @@
+.search-form {
+  &__form {
+    display: flex;
+
+    input {
+      flex-basis: 0;
+      flex-grow: 1;
+      border: none;
+      font-size: 18px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
