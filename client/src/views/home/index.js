@@ -1,4 +1,5 @@
 import React from 'react';
+import CardItem from './../../components/card-item';
 import { connect } from 'react-redux'
 
 class Home extends React.Component {
@@ -7,15 +8,19 @@ class Home extends React.Component {
       return (
         <div className="container">
           <div className="row row--justify-center">
-            <h2>Cragando...</h2>
+            <h2>Cargando...</h2>
           </div>
         </div>
       );
     } else {
       return (
         <div className="container">
-          <h2>Home</h2>
-          <p>{this.props.searchState.searchPhrase}</p>
+          {!this.props.searchState.data.length && (
+            <center>
+              <h1>Sin Resultados</h1>
+            </center>
+          )}
+          {this.props.searchState.data.map(item => <CardItem key={item.id} data={item}/>)}
         </div>
       );
     }

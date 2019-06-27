@@ -1,5 +1,6 @@
 import React from "react";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { setPhrase, search } from './../../actions/search';
 
 import "./style.scss";
@@ -7,6 +8,10 @@ import "./style.scss";
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      redirect: false,
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.hanldeSubmit = this.hanldeSubmit.bind(this);
@@ -19,11 +24,16 @@ class SearchForm extends React.Component {
 
   hanldeSubmit(e) {
     e.preventDefault();
+    this.setState({redirect: true});
     this.props.search();
   }
 
   render() {
     const { searchPhrase } = this.props.searchData;
+
+    if (this.state.redirect) {
+      return <Redirect to='/somewhere'/>;
+    }
 
     return (
       <div className="search-form">

@@ -1,4 +1,4 @@
-import searchService from './../services/search';
+import apiService from './../services/api';
 
 export const SET_PHRASE = "SET_PHRASE";
 export const SEARCH_DATA = "SEARCH_DATA";
@@ -28,7 +28,7 @@ const searchSuccess = (payload) => {
 export const search = () => {
   return (dispatch, getState) => {
     dispatch(searchRequest());
-    searchService(getState().search.searchPhrase)
+    apiService.search(getState().search.searchPhrase)
       .then(items => dispatch(searchSuccess(items)))
       .catch(err => dispatch(searchError(err)))
   }
