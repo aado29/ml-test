@@ -8,7 +8,7 @@ export const search = (phrase) => {
       q: phrase,
     },
   })
-    .then(data => data.data.items);
+    .then(data => data.data);
 };
 
 export const getProduct = (productId) => {

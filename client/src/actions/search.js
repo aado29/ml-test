@@ -29,7 +29,11 @@ export const search = () => {
   return (dispatch, getState) => {
     dispatch(searchRequest());
     apiService.search(getState().search.searchPhrase)
-      .then(items => dispatch(searchSuccess(items)))
+      .then(data => {
+        console.log(data);
+        return data;
+      })
+      .then(data => dispatch(searchSuccess(data)))
       .catch(err => dispatch(searchError(err)))
   }
 }

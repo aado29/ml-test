@@ -22,8 +22,10 @@ class SearchList extends React.Component {
       if (!!searchState.data.length) {
         return (
           <div className="search-list">
-            <div className="container search-list__inner">
-              {searchState.data.map(item => <CardItem key={item.id} data={item}/>)}
+            <div className="container">
+              <div className="search-list__inner">
+                {searchState.data.map(item => <CardItem key={item.id} data={item}/>)}
+              </div>
             </div>
           </div>
         );

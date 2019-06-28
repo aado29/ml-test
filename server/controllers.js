@@ -54,7 +54,7 @@ function searchController(req, res) {
 		.then(data => ({
 			...dataResponse,
 			breadcrumbs: data.data.path_from_root,
-		})
+		}))
 		.then(data => res.status(200).send(data))
 		.catch(err => {
 			errorController(res, err);
