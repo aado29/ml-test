@@ -1,26 +1,61 @@
 const axios = require('axios');
 const Product = require('./models/Product');
 
+function getCategoryId(data) {
+	const results = data.data.results;
+	const categories = results.map(item => item.category_id);
+
+	const categoryIds = {};
+	for (let i in categories) {
+			categoryIds[categories[i]] = (categoryIds[categories[i]] || 0) + 1;
+	}
+
+	let category = { id: categories[0], count: 1 };
+	for (let i in categoryIds) {
+		if (category.count < categoryIds[i]) {
+			category = { id: i, count: categoryIds[i] };
+		}
+	}
+
+	return category;
+}
+
 function errorController(res, err) {
+	console.log(err);
 	res.status(500)
-    .send({
-    	success: false,
-    	error: err
-    });
+		.json({
+			success: false,
+			error: err
+		});
 }
 
 function searchController(req, res) {
+	let dataResponse = {};
 	axios({
 		method: 'get',
 		url: `https://api.mercadolibre.com/sites/MLA/search?q=${req.query.q}`
 	})
-		.then(data => Product.allFromApi(data.data))
+		.then(data => {
+			dataResponse = data;
+			return Product.allFromApi(dataResponse.data)
+		})
 		.then(data => ({
-			categories: [],
 			items: data,
 			author: res.author
 		}))
-		.then(data => res.status(200).json(data))
+		.then(data => {
+			const category = getCategoryId(dataResponse);
+			dataResponse = data;
+			return axios({
+				method: 'get',
+				url: `https://api.mercadolibre.com/categories/${category.id}`
+			})
+		})
+		.then(data => ({
+			...dataResponse,
+			breadcrumbs: data.data.path_from_root,
+		})
+		.then(data => res.status(200).send(data))
 		.catch(err => {
 			errorController(res, err);
 		});

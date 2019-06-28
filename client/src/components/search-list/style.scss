@@ -1,0 +1,12 @@
+$border-radius: 4px;
+$unit-spacing: 8px;
+
+.search-list {
+	margin-top: $unit-spacing * 2;
+
+	&__inner {
+		background-color: #FFFFFF;
+		border-radius: $border-radius;
+		padding: $unit-spacing * 2;
+	}
+}

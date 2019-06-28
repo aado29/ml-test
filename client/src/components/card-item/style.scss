@@ -1,3 +1,39 @@
+$border-radius: 4px;
+$unit-spacing: 8px;
+
 .card-item {
-  
+	background-color: #FFFFFF;
+	padding: $unit-spacing * 2;
+	display: flex;
+	text-decoration: none;
+	border-bottom: 1px solid #EEEEEE;
+
+	&__thumbnail {
+		height: 180px;
+		min-height: 180px;
+		width: 180px;
+		min-width: 180px;
+		border-radius: $border-radius;
+		margin-right: $unit-spacing * 2;
+
+		&__content {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__body {
+		width: 65%;
+
+		.t-size-3,
+		.t-size-4 {
+			color: #333333;
+		}
+
+		.t-size-4 {
+			margin: $unit-spacing * 4 0;
+		} 
+	}
 }

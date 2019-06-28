@@ -1,3 +1,6 @@
+$border-radius: 4px;
+$unit-spacing: 8px;
+
 .search-form {
   &__form {
     display: flex;
@@ -7,10 +10,23 @@
       flex-grow: 1;
       border: none;
       font-size: 18px;
+      padding: $unit-spacing $unit-spacing * 2;
+      border-radius: $border-radius 0 0 $border-radius;
+      color: #333333;
 
       &:focus {
         outline: none;
       }
+
+      &::placeholder {
+        color: #999999;
+      }
+    }
+
+    button {
+      border-radius: 0 $border-radius $border-radius 0;
+      border: none;
+      background-color: #EEEEEE;
     }
   }
 }

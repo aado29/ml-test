@@ -1,0 +1,35 @@
+$unit-spacing: 8px;
+$border-radius: 4px;
+
+.single-product {
+	margin-top: $unit-spacing * 2;
+
+	&__inner {
+		background-color: #FFFFFF;
+		border-radius: $border-radius;
+	}
+
+	&__image {
+		width: 65%;
+		margin-right: $unit-spacing * 2;
+
+		&__content {
+			display: block;
+			width: 100%;
+		}
+	}
+
+	&__hightligth {
+		padding-top: $unit-spacing * 4;
+		padding-right: $unit-spacing * 4;
+	}
+
+	&__title-description {
+		font-size: 28px;
+		font-weight: normal;
+	}
+
+	&__title {
+		font-size: 16px;
+	}
+}

@@ -2,6 +2,7 @@ import React from "react";
 import SearchForm from './../search-form';
 
 import "./style.scss";
+import Logo from './logo.png';
 
 export default class Header extends React.Component {
   render() {
@@ -10,7 +11,7 @@ export default class Header extends React.Component {
         <div className="container">
           <div className="row row--align-center">
             <div className="header__logo">
-              <h1>Logo</h1>
+              <img src={Logo} alt="logo mercadolibre"/>
             </div>
             <div className="header__search-form">
               <SearchForm />

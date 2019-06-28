@@ -5,6 +5,11 @@ body {
   color: #333333;
 }
 
+.App {
+  background-color: #EEEEEE;
+  min-height: 100vh;
+}
+
 .container {
   max-width: 820px;
   padding: 0 15px;
@@ -22,3 +27,32 @@ body {
     align-items: center;
   }
 }
+
+.t-size-1 {
+  font-size: 12px;
+}
+
+.t-size-2 {
+  font-size: 14px;
+}
+
+.t-size-3 {
+  font-size: 18px;
+}
+
+.t-size-4 {
+  font-size: 24px;
+}
+
+.t-size-5 {
+  font-size: 46px;
+}
+
+.t-bold {
+  font-weight: bold;
+}
+
+.t-regular {
+  font-weight: normal;
+}
+

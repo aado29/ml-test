@@ -9,10 +9,15 @@ class CardItem extends React.Component {
     const { data } = this.props;
 
     return (
-      <div className="card-item">
-        <Link to={`/product/${data.id}`}>{data.title}</Link>
-        <p>{JSON.stringify(data.price)}</p>
-      </div>
+      <Link to={`/product/${data.id}`} className="card-item">
+        <div className="card-item__thumbnail">
+          <img src={data.picture} alt={data.title} className="card-item__thumbnail__content"/>
+        </div>
+        <div className="card-item__body">
+          <div className="t-size-4">{data.price.currency} {data.price.amount}</div>
+          <p className="t-size-3">{data.title}</p>
+        </div>
+      </Link>
     )
   }
 };

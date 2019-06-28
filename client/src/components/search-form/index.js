@@ -37,7 +37,7 @@ class SearchForm extends React.Component {
     return (
       <div className="search-form">
         <form action="#" className="search-form__form" onSubmit={this.hanldeSubmit}>
-          <input name="s" type="text" value={searchPhrase} onChange={this.handleChange}/>
+          <input name="s" type="text" value={searchPhrase} placeholder="Nunca dejes de buscar" onChange={this.handleChange}/>
           <button type="submit">Buscar</button>
         </form>
       </div>
