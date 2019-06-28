@@ -11,7 +11,7 @@ const initialState = {
   hasError: false,
   error: null,
   data: [],
-  breadcrumbs: [],
+  breadcrumb: [],
 };
 
 const todos = (state = initialState, action) => {
@@ -40,7 +40,7 @@ const todos = (state = initialState, action) => {
         ...state,
         isLoading: false,
         data: action.payload.items,
-        breadcrumbs: action.payload.breadcrumbs,
+        breadcrumb: action.payload.breadcrumb,
       };
     default:
       return state;

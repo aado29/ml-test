@@ -30,7 +30,6 @@ export const search = () => {
     dispatch(searchRequest());
     apiService.search(getState().search.searchPhrase)
       .then(data => {
-        console.log(data);
         return data;
       })
       .then(data => dispatch(searchSuccess(data)))

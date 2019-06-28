@@ -7,6 +7,7 @@ $border-radius: 4px;
 	&__inner {
 		background-color: #FFFFFF;
 		border-radius: $border-radius;
+		padding: $unit-spacing * 2;
 	}
 
 	&__image {
@@ -20,7 +21,7 @@ $border-radius: 4px;
 	}
 
 	&__hightligth {
-		padding-top: $unit-spacing * 4;
+		padding-top: $unit-spacing * 2;
 		padding-right: $unit-spacing * 4;
 	}
 

@@ -1,0 +1,30 @@
+$unit-spacing: 8px;
+
+.breadcrumb {
+  &__inner {
+    font-size: 14px;
+    color: #333333;
+    padding-top: $unit-spacing * 2;
+
+    span {
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        border: 1px solid #333333;
+        border-top: none;
+        border-left: none;
+        transform: rotate(-45deg);
+        vertical-align: middle;
+        margin: 0 $unit-spacing;
+      }
+
+      &:last-child {
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,7 @@ import reducers from './reducers';
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
 import Header from "./components/header";
+import Breadcrumb from "./components/breadcrumb";
 
 let store = createStore(
   reducers,
@@ -25,6 +26,7 @@ function App() {
       <div className="App">
         <Router>
           <Header />
+          <Breadcrumb />
           <Routes />
         </Router>
       </div>

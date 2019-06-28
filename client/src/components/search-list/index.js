@@ -35,7 +35,7 @@ class SearchList extends React.Component {
             <div className="container">
               <div className="row row--justify-center">
                 <div className="search-list__no-result">
-                  <h2>Sin resultados para "{searchState.searchPhrase}"</h2>
+                  <h2>Sin resultados</h2>
                 </div>
               </div>
             </div>

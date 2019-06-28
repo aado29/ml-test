@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import SearchForm from './../search-form';
 
 import "./style.scss";
@@ -18,19 +17,10 @@ class Header extends React.Component {
               <SearchForm />
             </div>
           </div>
-          <div className="row">
-            {JSON.stringify(this.props.searchData.breadcrumbs)}
-          </div>
         </div>
       </div>
     )
   }
 }
 
-const mapStatetoProps = (state) => {
-  return {
-    searchData: state.search,
-  };
-};
-
-export default connect(mapStatetoProps)(Header);
+export default Header;
