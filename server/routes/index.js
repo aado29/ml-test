@@ -1,12 +1,15 @@
 const express = require('express');
 const Product = require('../models/Product');
+const coorsMiddleware = require('../middlewares/coors');
 const authorMiddleware = require('../middlewares/author');
 
 const controllers = require('../controllers');
 
 const router = express.Router();
 
-router.get('/items/:id?', authorMiddleware, function(req, res) {
+router.all('*', coorsMiddleware, authorMiddleware)
+
+router.get('/items/:id?', function(req, res) {
   if (req.query.q) {
   	return controllers.searchController(req, res);
   }
