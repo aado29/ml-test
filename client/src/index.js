@@ -23,8 +23,8 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Header />
         <Router>
+          <Header />
           <Routes />
         </Router>
       </div>

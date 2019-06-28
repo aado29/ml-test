@@ -8,11 +8,9 @@ import "./style.scss";
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       redirect: false,
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.hanldeSubmit = this.hanldeSubmit.bind(this);
   }
@@ -30,11 +28,12 @@ class SearchForm extends React.Component {
 
   render() {
     const { searchPhrase } = this.props.searchData;
-
+    
     if (this.state.redirect) {
-      return <Redirect to='/somewhere'/>;
+      this.setState({redirect: false});
+      return <Redirect to="/" />
     }
-
+    
     return (
       <div className="search-form">
         <form action="#" className="search-form__form" onSubmit={this.hanldeSubmit}>
